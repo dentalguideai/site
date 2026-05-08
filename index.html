@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DentalGuide AI</title>
 
   <style>
+
     body{
       margin:0;
       background:linear-gradient(135deg,#eef7ff,#ffffff);
       font-family:Arial;
       overflow-x:hidden;
+      direction:rtl;
     }
 
     .page{
@@ -21,7 +23,8 @@
 
     iframe{
       width:100%;
-      height:1050px;
+      min-height:1050px;
+      height:1450px;
       border:none;
       border-radius:24px;
       box-shadow:0 8px 30px rgba(0,0,0,0.10);
@@ -37,7 +40,8 @@
       border-radius:24px;
       box-shadow:0 8px 30px rgba(0,0,0,0.08);
       color:#1f2937;
-      line-height:1.7;
+      line-height:1.9;
+      text-align:right;
     }
 
     .about h2{
@@ -54,12 +58,13 @@
     }
 
     @media (max-width: 768px){
+
       .page{
         padding:10px;
       }
 
       iframe{
-        height:1250px;
+        height:1700px;
         border-radius:16px;
         box-shadow:none;
       }
@@ -78,6 +83,7 @@
         font-size:15px;
       }
     }
+
   </style>
 </head>
 
@@ -90,15 +96,21 @@
     </iframe>
 
     <section class="about">
-      <h2>What is DentalGuide AI?</h2>
+
+      <h2>מה זה DentalGuide AI?</h2>
 
       <p>
-        DentalGuide AI is an educational tool designed to help patients better understand common symptoms after dental treatments such as tooth extractions, root canals, fillings, aligners, and cleanings.
+        DentalGuide AI היא מערכת חכמה להכוונה דנטלית שנועדה לספק מידע כללי לאחר טיפולי שיניים נפוצים כמו עקירות, טיפולי שורש, סתימות, ניקוי שיניים וקשתיות שקופות.
       </p>
 
       <p>
-        The system provides general guidance based on symptom type, severity, and time since treatment, helping users understand when symptoms may be normal and when professional dental evaluation may be needed.
+        המערכת מאפשרת לקבל הכוונה ראשונית לפי סוג הטיפול, סוג התסמין, חומרת התסמין ומספר השעות שעברו מאז הטיפול — במטרה לעזור להבין מתי התסמינים יכולים להיות תקינים ומתי מומלץ לפנות לבדיקה מקצועית.
       </p>
+
+      <p>
+        המידע באתר הינו מידע לימודי וכללי בלבד ואינו מהווה תחליף לייעוץ, אבחון או טיפול רפואי מקצועי של רופא שיניים.
+      </p>
+
     </section>
 
   </div>
