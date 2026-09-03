@@ -1,233 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>DentalGuide AI</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #eef7ff, #ffffff);
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-      color: #1f2937;
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(135deg,#eef7ff,#ffffff);
+      color:#1f2937;
     }
 
-    .page {
-      max-width: 1250px;
-      margin: auto;
-      padding: 30px;
+    .page{
+      max-width:1180px;
+      margin:auto;
+      padding:40px 24px;
     }
 
-    /* ---------- Header ---------- */
-
-    .header {
-      text-align: center;
-      margin-bottom: 25px;
+    .hero{
+      background:white;
+      border-radius:28px;
+      padding:55px 45px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      text-align:center;
     }
 
-    .header h1 {
-      margin: 0;
-      color: #0d47a1;
-      font-size: 42px;
+    .logo{
+      width:95px;
+      height:95px;
+      object-fit:contain;
+      margin-bottom:18px;
     }
 
-    .header p {
-      margin-top: 10px;
-      color: #6b7280;
-      font-size: 17px;
+    .hero h1{
+      margin:0;
+      font-size:48px;
+      color:#0d47a1;
     }
 
-    /* ---------- AI Container ---------- */
-
-    .ai-container {
-      position: relative;
-      width: 100%;
-      min-height: 1050px;
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
-      overflow: hidden;
+    .subtitle{
+      margin-top:14px;
+      font-size:21px;
+      color:#4b5563;
     }
 
-    iframe {
-      width: 100%;
-      height: 1050px;
-      border: none;
-      display: block;
-      background: white;
+    .description{
+      max-width:780px;
+      margin:24px auto 0 auto;
+      font-size:18px;
+      line-height:1.7;
+      color:#374151;
     }
 
-    /* ---------- Loading Screen ---------- */
-
-    .loader {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      z-index: 5;
-      text-align: center;
-      padding: 25px;
-      transition: opacity 0.4s ease;
+    .buttons{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .loader.hidden {
-      opacity: 0;
-      pointer-events: none;
+    .btn{
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.2s ease;
     }
 
-    .spinner {
-      width: 52px;
-      height: 52px;
-      border: 5px solid #dbeafe;
-      border-top: 5px solid #0d47a1;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
+    .primary{
+      background:#0d47a1;
+      color:white;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+    .primary:hover{
+      background:#08377f;
+      transform:translateY(-2px);
     }
 
-    .loader h3 {
-      margin: 0 0 8px;
-      color: #0d47a1;
-      font-size: 22px;
+    .secondary{
+      background:#eff6ff;
+      color:#0d47a1;
+      border:1px solid #bfdbfe;
     }
 
-    .loader p {
-      margin: 0;
-      color: #6b7280;
-      font-size: 15px;
+    .secondary:hover{
+      background:#dbeafe;
+      transform:translateY(-2px);
     }
 
-    /* ---------- Open directly ---------- */
-
-    .direct-open {
-      text-align: center;
-      margin-top: 18px;
+    .tech{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
-    .direct-open p {
-      color: #6b7280;
-      margin-bottom: 10px;
-      font-size: 14px;
+    .tag{
+      background:#f1f5f9;
+      color:#334155;
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
     }
 
-    .direct-button {
-      display: inline-block;
-      text-decoration: none;
-      background: #0d47a1;
-      color: white;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.2s ease;
+    .section{
+      background:white;
+      margin-top:28px;
+      padding:36px;
+      border-radius:24px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.06);
     }
 
-    .direct-button:hover {
-      background: #08377f;
-      transform: translateY(-1px);
+    .section h2{
+      margin-top:0;
+      color:#0d47a1;
+      font-size:32px;
     }
 
-    /* ---------- About ---------- */
-
-    .about {
-      max-width: 1100px;
-      margin: 35px auto 10px auto;
-      background: white;
-      padding: 35px;
-      border-radius: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      line-height: 1.7;
+    .section p{
+      font-size:17px;
+      line-height:1.7;
+      color:#374151;
     }
 
-    .about h2 {
-      color: #0d47a1;
-      margin-top: 0;
-      margin-bottom: 18px;
-      font-size: 36px;
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
     }
 
-    .about p {
-      font-size: 18px;
-      margin-bottom: 18px;
-      color: #374151;
+    .feature{
+      background:#f8fafc;
+      padding:22px;
+      border-radius:18px;
     }
 
-    .disclaimer {
-      margin-top: 25px;
-      padding: 18px;
-      border-radius: 12px;
-      background: #f8fafc;
-      color: #64748b;
-      font-size: 14px;
-      border-left: 4px solid #0d47a1;
+    .feature h3{
+      margin-top:0;
+      color:#0f172a;
     }
 
-    /* ---------- Mobile ---------- */
+    .feature p{
+      font-size:15px;
+      margin-bottom:0;
+    }
 
-    @media (max-width: 768px) {
+    .disclaimer{
+      margin-top:24px;
+      padding:18px;
+      border-radius:14px;
+      background:#f8fafc;
+      border-left:4px solid #0d47a1;
+      color:#64748b;
+      font-size:14px;
+      line-height:1.6;
+    }
 
-      .page {
-        padding: 10px;
+    @media (max-width:768px){
+      .page{
+        padding:16px;
       }
 
-      .header {
-        padding: 15px 10px;
+      .hero{
+        padding:38px 22px;
       }
 
-      .header h1 {
-        font-size: 30px;
+      .hero h1{
+        font-size:34px;
       }
 
-      .header p {
-        font-size: 15px;
+      .subtitle{
+        font-size:18px;
       }
 
-      .ai-container {
-        min-height: 1250px;
-        border-radius: 16px;
-        box-shadow: none;
+      .description{
+        font-size:16px;
       }
 
-      iframe {
-        height: 1250px;
+      .features{
+        grid-template-columns:1fr;
       }
 
-      .about {
-        padding: 22px;
-        margin: 20px auto 10px auto;
-        border-radius: 18px;
+      .section{
+        padding:24px;
       }
 
-      .about h2 {
-        font-size: 26px;
+      .section h2{
+        font-size:26px;
       }
 
-      .about p {
-        font-size: 15px;
-      }
-
-      .direct-button {
-        width: 100%;
-        max-width: 350px;
+      .btn{
+        width:100%;
+        max-width:330px;
       }
     }
-
   </style>
 </head>
 
@@ -235,104 +212,97 @@
 
   <div class="page">
 
-    <header class="header">
+    <section class="hero">
+
+      <img src="logo.png" alt="DentalGuide AI Logo" class="logo">
+
       <h1>DentalGuide AI</h1>
-      <p>AI-powered guidance for common dental symptoms</p>
-    </header>
 
-    <div class="ai-container">
+      <div class="subtitle">
+        AI-powered guidance for common dental symptoms
+      </div>
 
-      <div class="loader" id="loader">
+      <p class="description">
+        DentalGuide AI is a personal project designed to help users better understand
+        common symptoms after dental treatments and identify when professional
+        evaluation may be needed.
+      </p>
 
-        <div class="spinner"></div>
+      <div class="buttons">
 
-        <h3>Loading DentalGuide AI</h3>
+        <a
+          href="https://noy122122333-dentalguide-ai.hf.space"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn primary">
+          Try Live Demo
+        </a>
 
-        <p>
-          The AI system may take a few moments to start.
-        </p>
+        <a
+          href="https://github.com/dentalguideai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn secondary">
+          View GitHub
+        </a>
 
       </div>
 
-      <iframe
-        id="dentalFrame"
-        src="https://noy122122333-dentalguide-ai.hf.space"
-        title="DentalGuide AI"
-        allow="clipboard-read; clipboard-write"
-        loading="eager">
-      </iframe>
+      <div class="tech">
+        <span class="tag">Python</span>
+        <span class="tag">OOP</span>
+        <span class="tag">AI</span>
+        <span class="tag">Gradio</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Hugging Face</span>
+      </div>
 
-    </div>
+    </section>
 
-    <div class="direct-open">
-
-      <p>
-        Having trouble loading the system?
-      </p>
-
-      <a
-        class="direct-button"
-        href="https://noy122122333-dentalguide-ai.hf.space"
-        target="_blank"
-        rel="noopener noreferrer">
-        Open DentalGuide AI directly
-      </a>
-
-    </div>
-
-    <section class="about">
+    <section class="section">
 
       <h2>What is DentalGuide AI?</h2>
 
       <p>
-        DentalGuide AI is an educational tool designed to help patients
-        better understand common symptoms after dental treatments such as
-        tooth extractions, root canals, fillings, aligners, and cleanings.
+        The system provides general educational guidance based on symptom type,
+        severity, and time since treatment. It focuses on common situations following
+        treatments such as tooth extractions, root canals, fillings, aligners, and cleanings.
       </p>
 
-      <p>
-        The system provides general guidance based on symptom type,
-        severity, and time since treatment, helping users understand when
-        symptoms may be normal and when professional dental evaluation
-        may be needed.
-      </p>
+      <div class="features">
+
+        <div class="feature">
+          <h3>Symptom-Based Logic</h3>
+          <p>
+            Evaluates user input according to symptom severity and treatment context.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>AI-Powered Guidance</h3>
+          <p>
+            Provides structured educational recommendations and next-step guidance.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>Interactive Web App</h3>
+          <p>
+            Built as an accessible web application and deployed online for live use.
+          </p>
+        </div>
+
+      </div>
 
       <div class="disclaimer">
-        DentalGuide AI provides general educational information only and
-        does not replace professional dental diagnosis, treatment, or
-        emergency medical care.
+        DentalGuide AI provides general educational information only and does not replace
+        professional dental diagnosis, treatment, or emergency medical care.
       </div>
 
     </section>
 
   </div>
 
-  <script>
-
-    const iframe = document.getElementById("dentalFrame");
-    const loader = document.getElementById("loader");
-
-    iframe.addEventListener("load", function () {
-
-      setTimeout(function () {
-        loader.classList.add("hidden");
-      }, 700);
-
-    });
-
-    /*
-      Fallback:
-      Even if Hugging Face takes a long time to fully initialize,
-      remove the loading screen after 15 seconds so the user can
-      interact with the page.
-    */
-
-    setTimeout(function () {
-      loader.classList.add("hidden");
-    }, 15000);
-
-  </script>
-
 </body>
-
 </html>
